@@ -20,7 +20,7 @@ var Ajax = {
 			url: url,
 			async:true,
 			data: {
-				bigAreaId: bigAreaId
+				regionId: bigAreaId
 			},
 			success: function(res){
 				callback(res);
@@ -39,6 +39,21 @@ var Ajax = {
 			data: {
 				schoolId: schoolId
 			},
+			success: function(res){
+				callback(res);
+			},
+			error: function(err){
+				console.error(err);
+			}
+		});
+	},
+	// 新增数据
+	saveData: function(url, dataObject, callback){
+		$.ajax({
+			type:"post",
+			url: url,
+			async:true,
+			data: dataObject,
 			success: function(res){
 				callback(res);
 			},

@@ -57,33 +57,49 @@
 						<div class="panel-body">
 							<form id="formSearch" class="form-horizontal">
 								<div class="form-group" style="margin-top: 15px">
-									<div class="col-lg-11 col-md-11">
+									<div class="col-lg-12 col-md-12">
 										<label class="control-label col-lg-1  col-md-1"
 											for="txt_search_departmentname">大区</label>
-										<div class="col-lg-2 col-md-2">
+										<div class="col-lg-3 col-md-3">
 											<select class="form-control" id="bigArea">
-												<option value text="请选择">请选择</option>
+												<option value>请选择</option>
 											</select>
 										</div>
 										<label class="control-label col-lg-1  col-md-1"
 											for="txt_search_statu">学校</label>
-										<div class="col-lg-2  col-md-2">
+										<div class="col-lg-3  col-md-3">
 											<select class="form-control" id="schools">
-												<option value txt="请选择">请选择</option>
+												<option value>请选择</option>
 											</select>
 										</div>
 										<label class="control-label col-lg-1  col-md-1"
 											for="txt_search_statu">专业</label>
-										<div class="col-lg-2 col-md-2">
+										<div class="col-lg-3 col-md-3">
 											<select class="form-control " id="profession">
 												<option value>请选择</option>
 											</select>
 										</div>
 									</div>
-									<div class="col-lg-1 col-md-1">
-										<button type="button" id="searchBtn" class="btn btn-primary">查询</button>
+								</div>
+								
+								<div class="form-group" style="margin-top: 15px">
+									<div class="col-lg-12 col-md-12">
+										<label class="control-label col-lg-1  col-md-1"
+											for="txt_search_departmentname">开始</label>
+										<div class="col-lg-3 col-md-3">
+											<input id="startInput" class="form-control" type="text"/>
+										</div>
+										<label class="control-label col-lg-1  col-md-1"
+											for="txt_search_statu">结束</label>
+										<div class="col-lg-3  col-md-3">
+											<input id="endInput" class="form-control" type="text"/>
+										</div>
+										<div class="col-lg-4 col-md-4">
+											<button type="button" id="searchBtn" class="btn btn-primary">查询</button>
+										</div>
 									</div>
 								</div>
+								
 							</form>
 						</div>
 					</div>
@@ -101,117 +117,109 @@
 		</div>
 	</div>
 	<!-- 新增的模态框（Modal） -->
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-hidden="true">×</button>
-					<div class="modal-title" id="myModalLabel">修改信息</div>
+	<div class="modal fade  bs-example-modal-lg" tabindex="-1" id="myModal" role="dialog">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title">新增数据</h4>
+	      </div>
+	      <div class="modal-body">
+	      	<div class="row">
+				<div class="col-xs-6">
+					大区：<select name="daqu" id="bigRegion_add"
+						style="width:174px;height:28px;">
+						<option value>请选择</option>
+					</select>
 				</div>
-				<div class="modal-body">
-					<div class="row" style="margin-bottom:20px;">
-						<span id="teacherId" style="display:none;"></span>
-						<div class="col-xs-1"></div>
-						<div class="col-xs-5">
-							大区：<select name="daqu" id="bigRegion"
-								style="width:174px;height:28px;">
-								<option value="" text="请选择">请选择</option>
-							</select>
-						</div>
-						<div class="col-xs-5">
-							学校：<select name="school" id="school"
-								style="width:174px; height:28px;">
-								<option value="" text="请选择" txt="请选择">请选择</option>
-							</select>
-						</div>
-					</div>
-					<div class="row" style="margin-bottom:20px;">
-						<div class="col-xs-1"></div>
-						<div class="col-xs-5">
-							专业：<select name="profession" id="prof"
-								style="width:174px; height:28px;">
-								<option value="请选择" text="请选择">请选择</option>
-							</select>
-						</div>
-						<div class="col-xs-5" id="myclass">
-							班级：<input type="text" name="class" id="banji" maxlength="10" />
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-xs-1"></div>
-						<div class="col-xs-8">
-							<div style="float: left;" id="jiangshi">
-								<input type="checkbox" name="checkbox" id="checkbox1"
-									class="Taisyo" value="讲师"> <label for="checkbox1">讲师</label>
-							</div>
-							<div style="float: left;" id="banzhuren">
-								<input type="checkbox" name="checkbox" id="checkbox2"
-									class="Taisyo" value="班主任" style="margin-left:40px;"> <label
-									for="checkbox2">班主任</label>
-							</div>
-							<div style="float: left;" id="jiuye">
-								<input type="checkbox" name="checkbox" id="checkbox3"
-									class="Taisyo" value="就业" style="margin-left:28px;"> <label
-									for="checkbox3">就业</label>
-							</div>
-							<div id="myonlineTeacher" style="float: left;display: none">
-								<input type="checkbox" name="checkbox" id="checkbox4"
-									class="Taisyo" value="在线老师" style="margin-left:28px;">
-								<label for="checkbox4">在线老师</label>
-							</div>
-						</div>
-					</div>
-					<div class="div1 clear"
-						style="display:none;width:679px;height:30px;padding-top="8px;">
-						<div class="col-xs-1"></div>
-						<div class="col-xs-5" style="width:679px;margin-left:46px;">
-							讲师
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
-								type="text" name="role_teacher" id="role_teacher">
-						</div>
-					</div>
-					<div class="div2 clear"
-						style="display:none;width:679px;height:30px;padding-top="8px;">
-						<div class="col-xs-1"></div>
-						<div class="col-xs-5" style="width:679px;margin-left:46px;">
-							班主任&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
-								type="text" name="role_banzhuren" id="role_banzhuren"
-								style="margin-left:-2px;">
-						</div>
-					</div>
-					<div class="div3 clear"
-						style="display:none;width:679px;height:30px;padding-top="8px;">
-						<div class="col-xs-1"></div>
-						<div class="col-xs-5" style="width:679px;margin-left:46px;">
-							就业
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
-								type="text" name="role_work" id="role_work">
-
-						</div>
-					</div>
-					<div class="div4 clear"
-						style="display:none;width:679px;height:30px;padding-top="8px;">
-						<div class="col-xs-1"></div>
-						<div class="col-xs-5" style="width:679px;margin-left:46px;">
-							在线老师 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"
-								name="role_online" id="role_online">
-						</div>
-					</div>
-				</div>
-
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">
-						<span class="glyphicon glyphicon-ban-circle"></span> 取消
-					</button>
-					<button type="button" class="btn btn-primary" id="subm">
-						<span class="glyphicon glyphicon-ok-circle"></span> 提交
-					</button>
+				<div class="col-xs-6">
+					学校：<select name="school" id="school_add"
+						style="width:174px; height:28px;">
+						<option value>请选择</option>
+					</select>
 				</div>
 			</div>
-		</div>
-	</div>
+			<div class="row" style="margin-top:20px;">
+				<div class="col-xs-6">
+					专业：<select name="subject" id="subject_add"
+						style="width:174px;height:28px;">
+						<option value>请选择</option>
+					</select>
+				</div>
+				<div class="col-xs-6">
+					讲师：<input name="teacherName" id="teacher_add"
+						style="width:174px; height:28px;"/>
+				</div>
+			</div>
+			<div class="row" style="margin-top:20px;">
+				<div class="col-xs-6">
+					班级：<input name="className"  id="class_add"
+						style="width:174px; height:28px;"/>
+				</div>
+				<div class="col-xs-6">
+					分数：<input name="score" type="number"  id="score_add"
+						style="width:174px; height:28px;"/>
+				</div>
+			</div>
+			<div class="row" style="margin-top:20px;">
+				<div class="col-xs-6">
+					等级：<select name="level"  id="level_add"
+						style="width:174px; height:28px;">
+						<option value="优">优</option>
+						<option value="良">良</option>
+						<option value="中">中</option>
+						<option value="差">差</option>
+					</select>
+				</div>
+				<div class="col-xs-6">
+					人次：<input name="personCount" type="number"  id="personCount_add"
+						style="width:174px; height:28px;"/>
+				</div>
+			</div>
+			<div class="row" style="margin-top:20px;">
+				<div class="col-xs-6">
+					审阅状态：<select name="shenyueStatus"  id="shenyueStatus_add"
+								style="width:174px; height:28px;">
+								<option value>请选择</option>
+								<option value="未阅">未阅</option>
+								<option value="已阅">已阅</option>
+							</select>
+				</div>
+				<div class="col-xs-6">
+					双师：<input name="secondTeacher" id="secondTeacher_add"
+						style="width:174px; height:28px;"/>
+				</div>
+			</div>
+			<div class="row" style="margin-top:20px;">
+				<div class="col-xs-12">
+					项目提交日期:
+					<input id="commitDate_add" class="form-control" type="text"></input>
+				</div>
+			</div>
+			<div class="row" style="margin-top:20px;">
+				<div class="col-xs-12">
+					项目评价:
+					<textarea class="form-control" rows="3" id="evaluate_add"></textarea>
+				</div>
+			</div>
+			<div class="row" style="margin-top:20px;">
+				<div class="col-xs-12">
+					原因：<textarea class="form-control" rows="3"  id="reason_add"></textarea>
+				</div>
+			</div>
+			<div class="row" style="margin-top:20px;">
+				<div class="col-xs-12">
+					附件：<input class="form-control" type="file"  id="file_add"></input>
+				</div>
+			</div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+	        <button id="saveBtn" type="button" class="btn btn-primary">提交</button>
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
 
 	<!-- 编辑的模态框---------start -->
 	<div class="modal fade" id="myEditModal" tabindex="-1" role="dialog"
@@ -301,7 +309,10 @@
 	<script src="js/libs/jquery-1.9.1.min.js"></script>
 	<script src="js/libs/bootstrap.min.js"></script>
 	<script src="js/libs/bootstrap-table.min.js"></script>
-	<script src="js/libs/bootstrap-table-zh-CN.min.js"></script>
+	<script src="js/libs/bootstrap-table-zh-CN.min.js"></script><br />
+	<script src="js/libs/laydate.js"></script>
+	
+	<script src="js/src/commonUtils.js"></script>
 	<script src="js/src/ajax.js"></script>
 	<script src="js/src/auditItems.js"></script>
 	

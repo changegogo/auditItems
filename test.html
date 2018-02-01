@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdn.bootcss.com/jquery/3.3.0/jquery.js"></script>
+	</head>
+	<body>
+		<script>
+			$.ajax({
+				type:"get",
+				url:"http://20.14.3.21:8080/survey/projectAudit/show?username=admin&password=a5dec63ec01cefc0418f49aa3073c6b8",
+				async:true,
+				success: function(res){
+					console.log(res);
+					
+					
+					$.ajax({
+						type:"get",
+						url:"http://20.14.3.21:8080/survey/school/queryByRegion",
+						async:true,
+						success: function(res){
+							console.log(res)
+						},
+						error: function(err){
+							console.log(err);
+						}
+					});
+				},
+				error: function(err){
+					console.log(err);
+				}
+			});
+			
+			
+		</script>
+	</body>
+</html>

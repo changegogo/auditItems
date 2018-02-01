@@ -275,7 +275,7 @@ $(function() {
 
 
 
-	// 新增按钮事件
+	// 新增事件
 	$("#btnAdd").click(function() {
 		GLOBAL.type = "新增";
 		//模态框的显示
